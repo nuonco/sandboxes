@@ -11,12 +11,8 @@ locals {
   /* } */
 
   vars = {
-    id             = var.nuon_id
-    region         = var.region
-    min_size       = var.min_size
-    max_size       = var.max_size
-    desired_size   = var.desired_size
-    instance_types = ["t3a.medium"]
+    id     = var.nuon_id
+    region = var.region
   }
 }
 
@@ -45,6 +41,12 @@ variable "region" {
   }
 }
 
+variable "cluster_name" {
+  type        = string
+  description = "The name of the EKS cluster. Will use the install ID by default."
+  default     = ""
+}
+
 variable "cluster_version" {
   type        = string
   description = "The Kubernetes version to use for the EKS cluster."
@@ -67,6 +69,12 @@ variable "desired_size" {
   type        = number
   default     = 2
   description = "The desired number of nodes in the managed node group."
+}
+
+variable "instance_types" {
+  type        = list(string)
+  default     = ["t3a.medium"]
+  description = "The EC2 instance types to use for the EKS cluster."
 }
 
 variable "external_access_role_arns" {
