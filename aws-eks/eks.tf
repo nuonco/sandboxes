@@ -1,6 +1,39 @@
 locals {
   cluster_version = "1.28"
   region          = local.vars.region
+
+  # allow installing the runner in the cluster
+  aws_auth_role_install_access = {
+    rolearn  = var.external_access_role_arns[0],
+    username = "install:{{SessionName}}"
+    groups = [
+      "system:masters",
+    ]
+  }
+
+  # Allow for updates via terraform
+  aws_auth_role_terraform_access = {
+    rolearn  = var.assume_role_arn
+    username = "terraform:{{SessionName}}"
+    groups = [
+      "system:masters",
+    ]
+  }
+
+  # give vendor admin access to cluster
+  aws_auth_role_admin_access = {
+    rolearn  = var.admin_access_role_arn
+    username = "terraform:{{SessionName}}"
+    groups = [
+      "system:masters",
+    ]
+  }
+
+  # only add admin access role if variable was set
+  aws_auth_roles = (var.admin_access_role_arn == "" ?
+    concat(local.aws_auth_role_install_access, local.aws_auth_role_terraform_access) :
+    concat(local.aws_auth_role_install_access, local.aws_auth_role_terraform_access, local.aws_auth_role_admin_access)
+  )
 }
 
 resource "aws_kms_key" "eks" {
@@ -26,7 +59,7 @@ module "eks" {
   cluster_name                    = local.vars.id
   cluster_version                 = local.cluster_version
   cluster_endpoint_private_access = true
-  cluster_endpoint_public_access = true
+  cluster_endpoint_public_access  = true
 
   vpc_id     = module.vpc.vpc_id
   subnet_ids = module.vpc.private_subnets
@@ -40,7 +73,7 @@ module "eks" {
   cluster_addons = {
     vpc-cni = {
       most_recent = true
-      preserve = true
+      preserve    = true
     }
   }
 
@@ -48,25 +81,7 @@ module "eks" {
 
   manage_aws_auth_configmap = true
 
-  aws_auth_roles = [
-    # allow external roles to access the cluster.
-    {
-      rolearn  = var.external_access_role_arns[0],
-      username = "install:{{SessionName}}"
-      groups = [
-        "system:masters",
-      ]
-    },
-    # Allow for updates via terraform
-    {
-      rolearn  = var.assume_role_arn
-      username = "terraform:{{SessionName}}"
-      groups = [
-        "system:masters",
-      ]
-    },
-
-  ]
+  aws_auth_roles = local.aws_auth_roles
 
   eks_managed_node_groups = {
     default = {

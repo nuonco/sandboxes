@@ -68,6 +68,12 @@ variable "external_access_role_arns" {
   description = "Roles for external access to the cluster."
 }
 
+variable "admin_access_role_arn" {
+  description = "Optional role to provide admin access to the cluster."
+  type        = string
+  default     = ""
+}
+
 variable "waypoint_odr_namespace" {
   type        = string
   description = "Namespace that the ODR iam role's service account presides."
@@ -85,6 +91,6 @@ variable "internal_root_domain" {
 }
 
 variable "public_root_domain" {
-  type = string
+  type        = string
   description = "public root domain."
 }
