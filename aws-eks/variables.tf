@@ -45,6 +45,12 @@ variable "region" {
   }
 }
 
+variable "cluster_version" {
+  type        = string
+  description = "The Kubernetes version to use for the EKS cluster."
+  default     = "~> 19.17.2"
+}
+
 variable "min_size" {
   type        = number
   default     = 2

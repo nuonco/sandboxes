@@ -1,5 +1,5 @@
 locals {
-  cluster_version = "1.28"
+  cluster_version = var.cluster_version
   region          = local.vars.region
 
   # allow installing the runner in the cluster
