@@ -1,5 +1,7 @@
 locals {
-  vpc_id = var.vpc_id
+  vpc_id            = var.vpc_id
+  subnets_tag_name  = "kubernetes.io/role/internal-elb"
+  subnets_tag_value = "1"
 }
 
 
@@ -11,13 +13,14 @@ data "aws_availability_zones" "available" {
   state = "available"
 }
 
-data "aws_subnets" "private" {
+data "aws_subnets" "selected" {
   filter {
     name   = "vpc-id"
     values = [local.vpc_id]
   }
 
-  tags = {
-    Tier = "Private"
+  filter {
+    name   = "tag:${local.subnets_tag_name}"
+    values = [local.subnets_tag_value]
   }
 }

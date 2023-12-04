@@ -10,7 +10,7 @@ module "alb_controller_irsa" {
 
   role_name = "alb-controller-${local.vars.id}"
 
-  create_role = true
+  create_role                            = true
   attach_load_balancer_controller_policy = true
 
   oidc_providers = {

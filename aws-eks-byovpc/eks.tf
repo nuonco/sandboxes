@@ -1,6 +1,6 @@
 locals {
   cluster_name    = (var.cluster_name != "" ? var.cluster_name : var.nuon_id)
-  cluster_version = var.cluster_version
+  cluster_version = var.eks_version
 
   instance_types = var.instance_types
   min_size       = var.min_size
@@ -33,8 +33,8 @@ locals {
   }
   # only add admin access role if variable was set
   aws_auth_roles = (var.admin_access_role_arn == "" ?
-    concat(local.aws_auth_role_install_access, local.aws_auth_role_terraform_access) :
-    concat(local.aws_auth_role_install_access, local.aws_auth_role_terraform_access, local.aws_auth_role_admin_access)
+    [local.aws_auth_role_install_access, local.aws_auth_role_terraform_access] :
+    [local.aws_auth_role_install_access, local.aws_auth_role_terraform_access, local.aws_auth_role_admin_access]
   )
 }
 
@@ -65,7 +65,7 @@ module "eks" {
   cluster_endpoint_public_access  = true
 
   vpc_id     = data.aws_vpc.main.id
-  subnet_ids = data.aws_subnets.private.ids
+  subnet_ids = data.aws_subnets.selected.ids
 
   create_kms_key = false
   cluster_encryption_config = {
