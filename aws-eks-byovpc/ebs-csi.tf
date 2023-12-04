@@ -54,7 +54,7 @@ resource "helm_release" "ebs_csi" {
 
   depends_on = [
     module.ebs_csi_irsa,
-    module.vpc,
+    data.aws_vpc.main,
     module.eks
   ]
 }
