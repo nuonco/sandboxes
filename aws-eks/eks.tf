@@ -42,11 +42,10 @@ resource "aws_kms_key" "eks" {
   description = "Key for ${local.cluster_name} EKS cluster"
 }
 
-# TODO: Looks like we're not using this?
-# resource "aws_kms_alias" "eks" {
-#   name          = "alias/nuon/eks-${local.vars.id}"
-#   target_key_id = aws_kms_key.eks.id
-# }
+resource "aws_kms_alias" "eks" {
+  name          = "alias/nuon/eks-${local.vars.id}"
+  target_key_id = aws_kms_key.eks.id
+}
 
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
