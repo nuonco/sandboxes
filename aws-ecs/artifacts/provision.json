@@ -44,6 +44,8 @@
                 "ec2:ModifyLaunchTemplate",
                 "ec2:RevokeSecurityGroupEgress",
                 "ec2:RunInstances",
+                "ec2:DeleteNetworkAclEntry",
+                "ec2:CreateNetworkAclEntry",
                 "ecs:CreateCluster",
                 "ecs:ListTagsForResource",
                 "ecs:TagResource",
