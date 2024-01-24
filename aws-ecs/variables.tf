@@ -20,11 +20,6 @@ variable "prefix_override" {
   default     = ""
 }
 
-variable "vpc_id" {
-  type        = string
-  description = "The ID of VPC to deploy the EKS cluster to"
-}
-
 variable "nuon_id" {
   type        = string
   description = "The nuon id for this install. Used for naming purposes."
