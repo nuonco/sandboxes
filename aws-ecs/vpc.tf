@@ -43,6 +43,15 @@ module "vpc" {
     }
   ]
 
+  default_security_group_ingress = [
+    {
+      "protocol"  = "-1"
+      from_port   = 0
+      to_port     = 0
+      cidr_blocks = "0.0.0.0/0"
+    }
+  ]
+
   public_subnet_tags = {
     "kubernetes.io/cluster/${local.nuon_id}" = "shared"
     "kubernetes.io/role/elb"                 = 1
