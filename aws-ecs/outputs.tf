@@ -33,6 +33,8 @@ output "vpc" {
 
     default_security_group_id = aws_security_group.runner.id
     # default_security_group_arn = aws_security_group.runner.arn
+    db_subnet_group_name = module.vpc.database_subnet_group_name
+    db_subnet_group_id = module.vpc.database_subnet_group
   }
 }
 
