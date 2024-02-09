@@ -1,4 +1,4 @@
-Parameters:
+Parameters: {}
 Resources:
   InstallRole:
     Type: AWS::IAM::Role
