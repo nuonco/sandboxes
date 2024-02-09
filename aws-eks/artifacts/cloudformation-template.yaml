@@ -36,7 +36,9 @@ Resources:
   ProvisionPolicy:
     Type: AWS::IAM::Policy
     Properties:
-      PolicyName: ProvisionPolicy
+      PolicyName: !Sub
+        - nuon-provision-${RoleName}
+        - RoleName: !Ref RoleName
       Roles:
         - !Ref InstallRole
       PolicyDocument:
@@ -52,8 +54,10 @@ Resources:
             - ec2:DescribeSecurityGroupReferences
             - ec2:DescribeSecurityGroupRules
             - ec2:DescribeSecurityGroups
+            - ec2:DescribeAvailabilityZones
             - ec2:CreateInternetGateway
             - ec2:CreateNatGateway
+            - ec2:CreateNetworkAclEntry
             - ec2:CreateRoute
             - ec2:CreateRouteTable
             - ec2:CreateSecurityGroup
@@ -147,7 +151,9 @@ Resources:
   DeprovisionPolicy:
     Type: AWS::IAM::Policy
     Properties:
-      PolicyName: ProvisionPolicy
+      PolicyName: !Sub
+        - nuon-deprovision-${RoleName}
+        - RoleName: !Ref RoleName
       Roles:
         - !Ref InstallRole
       PolicyDocument:
