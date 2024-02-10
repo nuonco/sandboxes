@@ -95,6 +95,7 @@ Resources:
               - ecr:ListTagsForResource
               - ecr:TagResource
               - eks:CreateCluster
+              - eks:UpdateNodegroupVersion
               - eks:CreateNodegroup
               - eks:DescribeCluster
               - eks:TagResource
