@@ -50,6 +50,7 @@
                 "ecr:TagResource",
                 "eks:CreateCluster",
                 "eks:CreateNodegroup",
+                "eks:DescribeUpdate",
                 "eks:DescribeCluster",
                 "eks:TagResource",
                 "eks:ListTagsForResource",
