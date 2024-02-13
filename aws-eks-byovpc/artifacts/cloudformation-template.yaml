@@ -17,9 +17,9 @@ Resources:
         Ref: RoleName
       Tags:
         - Key: "managed-by"
-          Name: "nuon"
+          Value: "nuon"
         - Key: "nuon-sandbox-type"
-          Name: "aws-eks-byovpc"
+          Value: "aws-eks-byovpc"
       AssumeRolePolicyDocument:
         Statement:
           - Effect: Allow
