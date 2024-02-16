@@ -68,6 +68,7 @@ Resources:
               - ec2:CreateSecurityGroup
               - ec2:CreateSubnet
               - ec2:CreateTags
+              - rds:CreateDBSubnetGroup
               - ec2:CreateVpc
               - ec2:CreateLaunchTemplateVersion
               - ec2:CreateLaunchTemplate

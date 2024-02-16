@@ -99,6 +99,7 @@
                 "route53:ListResourceRecordSets",
                 "route53:ListTagsForResource",
                 "route53:ChangeResourceRecordSets",
+                "rds:CreateDBSubnetGroup",
                 "s3:GetObject",
                 "s3:ListBucket",
                 "s3:PutObject"
