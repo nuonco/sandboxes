@@ -1,7 +1,7 @@
 locals {
   iam_role_name   = "${var.prefix}-nuon-${var.sandbox}-access"
   sandboxes_repo    = "nuonco/sandboxes"
-  artifact_base_url = "https://raw.githubusercontent.com/nuonco/sandboxes/${var.branch}/${local.sandbox}/artifacts"
+  artifact_base_url = "https://raw.githubusercontent.com/nuonco/sandboxes/${var.branch}/${var.sandbox}/artifacts"
 }
 
 module "iam_role" {
