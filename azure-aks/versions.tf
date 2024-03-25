@@ -1,6 +1,5 @@
 terraform {
-  // TODO: uncomment when done testing
-  backend "s3" {}
+  backend "local" {}
 
   required_providers {
     azapi = {
