@@ -9,6 +9,15 @@ output "vpn" {
   }
 }
 
+output "account" {
+  value = {
+    "location" = var.location
+    "subscription_id" = data.azurerm_client_config.current.subscription_id
+    "client_id" = data.azurerm_client_config.current.client_id
+    "resource_group_name" = azurerm_resource_group.rg.name
+  }
+}
+
 output "acr" {
   value = {
     id = azurerm_container_registry.acr.id
