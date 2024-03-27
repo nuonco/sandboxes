@@ -23,6 +23,10 @@ module "network" {
   subnet_service_endpoints = {
     (local.subnet_names[2]) : ["Microsoft.Storage", "Microsoft.Sql"],
   }
+  subnet_enforce_private_link_endpoint_network_policies = {
+    (local.subnet_names[2]) : true
+  }
+
   use_for_each = true
   tags = {
     environment = "dev"

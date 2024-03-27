@@ -9,6 +9,22 @@ output "vpn" {
   }
 }
 
+output "public_domain" {
+  value = {
+    nameservers = azurerm_dns_zone.public.name_servers
+    name = azurerm_dns_zone.public.name
+    id = azurerm_dns_zone.public.id
+  }
+}
+
+output "internal_domain" {
+  value = {
+    nameservers = []
+    name = azurerm_private_dns_zone.internal.name
+    id = azurerm_private_dns_zone.internal.id
+  }
+}
+
 output "account" {
   value = {
     "location" = var.location
