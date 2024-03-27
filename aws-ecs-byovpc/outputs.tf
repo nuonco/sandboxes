@@ -29,8 +29,6 @@ output "vpc" {
 
     default_security_group_id  = module.sandbox.vpc.default_security_group_id
     default_security_group_arn = module.sandbox.vpc.default_security_group_arn
-    db_subnet_group_name       = module.sandbox.vpc.db_subnet_group_name
-    db_subnet_group_id         = module.sandbox.vpc.db_subnet_group_id
   }
 }
 
