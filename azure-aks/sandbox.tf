@@ -1,6 +1,7 @@
 module "sandbox" {
-  source  = "nuonco/aks-sandbox/azure"
-  version = "1.3.2"
+  #source  = "nuonco/aks-sandbox/azure"
+  #version = "1.3.2"
+  source = "git::https://github.com/nuonco/terraform-azure-aks-sandbox.git?ref=jm/fix-rotation"
 
   location             = var.location
   nuon_id              = var.nuon_id
