@@ -1,8 +1,11 @@
 module "sandbox" {
-  source  = "nuonco/eks-byovpc-sandbox/aws"
-  version = "1.0.5"
+  # source  = "nuonco/eks-byovpc-sandbox/aws"
+  # version = "1.0.5"
+  source = "github.com/nuonco/terraform-aws-eks-byovpc-sandbox?ref=ja%2F4666-aws-eks-byovpc-subnet-inputs"
 
   vpc_id                = var.vpc_id
+  private_subnet_ids    = var.private_subnet_ids
+  public_subnet_ids     = var.public_subnet_ids
   install_name          = var.install_name
   cluster_name          = var.cluster_name
   eks_version           = var.eks_version
