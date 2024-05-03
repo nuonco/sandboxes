@@ -3,18 +3,19 @@ module "sandbox" {
   # version = "1.0.5"
   source = "github.com/nuonco/terraform-aws-eks-byovpc-sandbox?ref=ja%2F4666-aws-eks-byovpc-subnet-inputs"
 
-  vpc_id                = var.vpc_id
-  private_subnet_ids    = var.private_subnet_ids
-  public_subnet_ids     = var.public_subnet_ids
-  install_name          = var.install_name
-  cluster_name          = var.cluster_name
-  eks_version           = var.eks_version
-  min_size              = var.min_size
-  max_size              = var.max_size
-  desired_size          = var.desired_size
-  default_instance_type = var.default_instance_type
-  admin_access_role_arn = var.admin_access_role_arn
-  additional_tags       = var.additional_tags
+  vpc_id                          = var.vpc_id
+  private_subnet_ids              = var.private_subnet_ids
+  public_subnet_ids               = var.public_subnet_ids
+  install_name                    = var.install_name
+  cluster_name                    = var.cluster_name
+  eks_version                     = var.eks_version
+  min_size                        = var.min_size
+  max_size                        = var.max_size
+  desired_size                    = var.desired_size
+  default_instance_type           = var.default_instance_type
+  admin_access_role_arn           = var.admin_access_role_arn
+  additional_tags                 = var.additional_tags
+  enable_nginx_ingress_controller = var.enable_nginx_ingress_controller
 
   nuon_id                           = var.nuon_id
   region                            = var.region
