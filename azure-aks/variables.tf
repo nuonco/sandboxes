@@ -14,8 +14,8 @@ variable "location" {
 }
 
 variable "access_group_users" {
-  type = list(string)
-  default = ["jon@nuon.co"]
+  type        = list(string)
+  default     = ["jon@nuon.co"]
   description = "List of emails that will have access to the install"
 }
 
@@ -66,4 +66,10 @@ variable "username" {
   type        = string
   description = "The admin username for the new cluster."
   default     = "azureadmin"
+}
+
+variable "template" {
+  type        = string
+  description = "What template to use."
+  default     = "fully_managed_single_subnet"
 }

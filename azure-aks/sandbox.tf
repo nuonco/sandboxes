@@ -1,6 +1,7 @@
 module "sandbox" {
-  source  = "nuonco/aks-sandbox/azure"
-  version = "1.3.3"
+  # source  = "nuonco/aks-sandbox/azure"
+  # version = "1.3.3"
+  source = "github.com/nuonco/terraform-azure-aks-sandbox?ref=configurable-network"
 
   location             = var.location
   nuon_id              = var.nuon_id
@@ -14,4 +15,5 @@ module "sandbox" {
   node_count           = var.node_count
   instance_types       = var.instance_types
   username             = var.username
+  template             = var.template
 }
