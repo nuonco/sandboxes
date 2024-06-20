@@ -1,6 +1,6 @@
 module "sandbox" {
   source  = "nuonco/eks-byovpc-sandbox/aws"
-  version = "1.1.0"
+  version = "1.2.0"
 
   vpc_id                          = var.vpc_id
   private_subnet_ids              = var.private_subnet_ids
