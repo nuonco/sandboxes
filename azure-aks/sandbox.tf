@@ -1,6 +1,7 @@
 module "sandbox" {
-  source  = "nuonco/aks-sandbox/azure"
-  version = "1.3.6"
+  # source  = "nuonco/aks-sandbox/azure"
+  # version = "1.3.6"
+  source = "github.com/nuonco/terraform-azure-aks-sandbox?ref=ja%2Ffix-user-assigned-identities"
 
   location             = var.location
   nuon_id              = var.nuon_id
