@@ -72,6 +72,7 @@ Resources:
               - ec2:CreateLaunchTemplateVersion
               - ec2:CreateLaunchTemplate
               - ec2:DescribeAddresses
+              - ec2:DescribeAddressesAttribute
               - ec2:DescribeInternetGateways
               - ec2:DescribeLaunchTemplateVersions
               - ec2:DescribeLaunchTemplates
