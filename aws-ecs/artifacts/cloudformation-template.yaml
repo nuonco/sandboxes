@@ -145,7 +145,7 @@ Resources:
               - logs:ListTagsLogGroup
               - logs:PutRetentionPolicy
               - logs:TagResource
-              - logs:TagsForResource
+              - logs:ListTagsForResource
               - route53:ChangeTagsForResource
               - route53:CreateHostedZone
               - route53:GetChange
