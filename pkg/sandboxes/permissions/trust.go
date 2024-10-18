@@ -25,31 +25,7 @@ var TrustPolicy = Policy{
 			Sid:    "",
 			Effect: "Allow",
 			Principal: &Principal{
-				AWS: "arn:aws:iam::676549690856:root",
-			},
-			Action: []string{"sts:AssumeRole"},
-		},
-		{
-			Sid:    "",
-			Effect: "Allow",
-			Principal: &Principal{
-				AWS: "arn:aws:iam::007754799877:root",
-			},
-			Action: []string{"sts:AssumeRole"},
-		},
-		{
-			Sid:    "",
-			Effect: "Allow",
-			Principal: &Principal{
 				AWS: "arn:aws:iam::814326426574:root",
-			},
-			Action: []string{"sts:AssumeRole"},
-		},
-		{
-			Sid:    "",
-			Effect: "Allow",
-			Principal: &Principal{
-				AWS: "arn:aws:iam::766121324316:root",
 			},
 			Action: []string{"sts:AssumeRole"},
 		},
