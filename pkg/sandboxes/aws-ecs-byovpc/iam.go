@@ -4,13 +4,15 @@ import perms "github.com/nuonco/sandboxes/pkg/sandboxes/permissions"
 
 // provision role permissions specific to this sandbox
 var ProvisionPermissions = append([]string{
+	"application-autoscaling:*",
 	"ecs:CreateCapacityProvider",
-	"ecs:CreateCluster",
 	"ecs:DescribeCapacityProviders",
-	"ecs:DescribeClusters",
-	"ecs:ListTagsForResource",
+	"ecs:CreateCluster",
 	"ecs:PutClusterCapacityProviders",
+	"ecs:DescribeClusters",
 	"ecs:TagResource",
+	"ecs:ListTagsForResource",
+	"ecs:RegisterTaskDefinition",
 }, perms.BaseProvisionPermissions...)
 
 // Full provision rol policy for this sandbox
@@ -29,6 +31,7 @@ var ProvisionPolicy = perms.Policy{
 var DeprovisionPermissions = append([]string{
 	"ecs:DeleteCapacityProvider",
 	"ecs:DeleteCluster",
+	"logs:ListTagsForResource",
 }, perms.BaseDeprovisionPermissions...)
 
 // Full deprovision role policy for this sandbox
