@@ -1,7 +1,7 @@
 module "sandbox" {
   # NOTE(fd): example format for testing branches
   # source = "github.com/nuonco/terraform-aws-eks-sandbox?ref=e4c8e0feda3b80c84bb32a170f8969194160b621"
-  source = "github.com/nuonco/terraform-aws-eks-sandbox?ref=daeda688b6daeda2c95ee37395faa3083d347a5e"
+  source = "github.com/nuonco/terraform-aws-eks-sandbox?ref=b161a70db549d60ef75c91ff5f468753d3af8c8f"
   # source  = "nuonco/eks-sandbox/aws"
   # version = "1.4.4"
 
