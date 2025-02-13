@@ -1,8 +1,10 @@
 module "sandbox" {
   # NOTE(fd): example format for testing branches
   # source = "github.com/nuonco/terraform-aws-eks-sandbox?ref=e4c8e0feda3b80c84bb32a170f8969194160b621"
-  source  = "nuonco/eks-sandbox/aws"
-  version = "1.4.4"
+  # source  = "nuonco/eks-sandbox/aws"
+  # version = "1.4.4"
+  #
+  source = "github.com/nuonco/terraform-aws-eks-sandbox?ref=aa7dd7b1264aa16e9ec89d0622b02d1ce682bd77"
 
   install_name          = var.install_name
   cluster_name          = var.cluster_name
