@@ -1,8 +1,8 @@
 module "sandbox" {
   # NOTE(fd): example format for testing branches
-  # source = "github.com/nuonco/terraform-aws-eks-sandbox?ref=e4c8e0feda3b80c84bb32a170f8969194160b621"
-  source  = "nuonco/eks-sandbox/aws"
-  version = "1.6.1"
+  source = "github.com/nuonco/terraform-aws-eks-sandbox?ref=fd363ec37c94d5c18b68fc9e50d7ea135402b866"
+  # source  = "nuonco/eks-sandbox/aws"
+  # version = "1.4.7"
 
   install_name          = var.install_name
   cluster_name          = var.cluster_name
@@ -12,7 +12,6 @@ module "sandbox" {
   desired_size          = var.desired_size
   default_instance_type = var.default_instance_type
   additional_tags       = var.additional_tags
-  admin_access_role     = var.admin_access_role
 
   nuon_id                           = var.nuon_id
   region                            = var.region
