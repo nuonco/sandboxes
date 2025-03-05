@@ -3,7 +3,7 @@ module "sandbox" {
   # source  = "nuonco/eks-sandbox/aws"
   # version = "1.4.7"
   #
-  source = "github.com/nuonco/terraform-aws-eks-sandbox?ref=80efba0cef18fc0092c2055c02cbb789c6f5adce"
+  source = "github.com/nuonco/terraform-aws-eks-sandbox?ref=59f9b6f94c50359f33b5927e87d0a56435ac1420"
 
   install_name          = var.install_name
   cluster_name          = var.cluster_name
