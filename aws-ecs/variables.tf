@@ -1,7 +1,6 @@
 locals {
   nuon_id        = var.nuon_id
   prefix         = (var.prefix_override != "" ? var.prefix_override : var.nuon_id)
-  install_region = var.region
   tags = merge(
     var.tags,
     { nuon_id = var.nuon_id },
