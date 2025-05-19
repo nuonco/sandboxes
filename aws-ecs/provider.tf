@@ -1,5 +1,5 @@
 provider "aws" {
-  region = local.install_region
+  region = {{.nuon.install_stack.region}}
 
   default_tags {
     tags = local.tags
