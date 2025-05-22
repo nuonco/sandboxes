@@ -1,11 +1,3 @@
-locals {
-  nuon_id        = var.nuon_id
-  prefix         = (var.prefix_override != "" ? var.prefix_override : var.nuon_id)
-  tags = merge(
-    var.tags,
-    { nuon_id = var.nuon_id },
-  )
-}
 
 
 locals {
@@ -59,6 +51,11 @@ variable "internal_root_domain" {
   description = "The internal root domain."
 }
 
+variable "enable_nuon_dns" {
+  type        = string
+  default     = "false"
+  description = "Whether or not the cluster should use a nuon-provided nuon.run domain."
+} 
 
 variable "prefix_override" {
   type        = string
@@ -71,6 +68,14 @@ variable "nuon_id" {
   type        = string
   description = "The nuon id for this install. Used for naming purposes."
 }
+
+
+variable "additional_tags" {
+  type        = map(any)
+  description = "Extra tags to append to the default tags that will be added to install resources."
+  default     = {}
+}
+
 
 variable "tags" {
   type        = map(any)
