@@ -36,5 +36,7 @@ Reference the documentation for each sandbox module for detailed usage examples.
 - [AWS EKS BYOVPC](https://registry.terraform.io/modules/nuonco/eks-byovpc-sandbox/aws/latest)
 - [AWS ECS](https://registry.terraform.io/modules/nuonco/ecs-sandbox/aws/latest)
 - [AWS ECS BYOVPC](https://registry.terraform.io/modules/nuonco/ecs-byovpc-sandbox/aws/latest)
+- [AWS Empty]
 - [Azure AKS](https://registry.terraform.io/modules/nuonco/aks-sandbox/azure/latest)
 - [Azure AKS BYOVPN](https://registry.terraform.io/modules/nuonco/aks-byovpn-sandbox/azure/latest)
+
